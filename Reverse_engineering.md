@@ -29,7 +29,25 @@ The application implements SSL pinning using **OkHttp / Conscrypt**.
 - Hooked OkHttp CertificatePinner using Frida
 - Used universal SSL unpinning script
 
+### How to Bypassed SSL Pinning :
+- Using rooted devices like KernelSU, Magisk or anything else
+- Install ZygiskNext and LSPosed into KernelSU for bypass root detection
+- Install Hide My Applist application into devices
+- Configure enabled HMA on LSPosed and enabled system framework
+- Configure app target (for bypass root detection) enable hide, emable work mode, and exclude system apps on HMA App Settings
+- Running frida-server
+- Open app target
+- Attach frida in the midle app using command "frida -U -N com.app.target"
+- After attach frida, copy script Frida-Multiple-Unpinning, You Can get script in a link https://codeshare.frida.re/@akabe1/frida-multiple-unpinning/
+- After that, SSL Pinning can be bypass.
+- For the intercept API using Burp Suite, setting proxy on rooted device, setting for IP and Proxy which use on MacOS
+- After setting IP and Proxy, install CA certificate with open google chrome and visit http://burp so that show burp suite page and download certificate, after download, install certificate to rooted devices.
+- After successfully install CA certificate, on Burp Suite enable Intercept On button.
+- Open app target, and API app target can be intercept on Burp Suite.
+- Forward all http request, and see API request and response what is needed.
+
 #### Result:
+- Successfully bypass root detection
 - Successfully intercepted HTTPS traffic via Burp Suite
 - Able to inspect all API requests and responses
 
