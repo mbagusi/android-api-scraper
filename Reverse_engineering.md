@@ -12,7 +12,8 @@ The approach focuses on analyzing the mobile application, bypassing protections,
 
 The following tools were used:
 
-- **Frida** → Dynamic instrumentation and SSL pinning bypass  
+- **Frida** → Dynamic instrumentation and SSL pinning bypass
+- **KernelSU/Magisk** → For bypass root detection and running frida
 - **Burp Suite** → Intercepting and analyzing HTTPS traffic  
 - **ADB** → Device interaction and debugging  
 
