@@ -47,7 +47,8 @@ AI-assisted:
 - Documentation drafting
 
 Manual work:
-- Reverse engineering process
+- Bypass Root detection using KernelSU + Hide My Applist
+- Set proxy on Burp Suite and install certificate into devices
 - SSL pinning bypass using Frida
 - API discovery using Burp Suite
 - Understanding request structure and parameters
