@@ -9,6 +9,7 @@ This project extracts merchant and product data using direct API replay.
 ## ⚙️ Requirements & Setup
 
 ### 1. Environment
+- Real Devices (Google Pixel 7 - Android 16)
 - Python 3.10+
 - pip3
 
