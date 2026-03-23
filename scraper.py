@@ -33,7 +33,7 @@ results = []
 
 with httpx.Client(http2=True, headers=headers, timeout=20) as client:
 
-    print("🚀 REQUEST NEARBY")
+    print("REQUEST NEARBY")
 
     res = client.get(URL, params=params)
 
@@ -41,22 +41,18 @@ with httpx.Client(http2=True, headers=headers, timeout=20) as client:
 
     data = res.json()
 
-    # 🔥 FIX PARSING
     merchants = data.get("searchResult", {}).get("searchMerchants", [])
 
     print(f"✅ FOUND {len(merchants)} MERCHANTS")
 
-    # 🔥 LOOP MERCHANT
     for m in merchants[:25]:
 
         mid = m.get("id")
 
-        # 🔥 FIX NAME
         name = m.get("address", {}).get("name")
 
         print("👉", name, "| ID:", mid)
 
-        # 🔥 CALL DETAIL API
         detail_url = f"{BASE}/api/passenger/v4/grabfood/merchants/{mid}"
 
         detail_res = client.get(detail_url, params={
@@ -83,7 +79,6 @@ with httpx.Client(http2=True, headers=headers, timeout=20) as client:
             "products": []
         }
 
-        # 🔥 MENU
         for cat in merchant.get("menu", {}).get("categories", []):
             for p in cat.get("items", []):
 
@@ -101,7 +96,6 @@ with httpx.Client(http2=True, headers=headers, timeout=20) as client:
         results.append(item)
 
 
-# 💾 SAVE JSON
 with open("output.json", "w") as f:
     json.dump(results, f, indent=2)
 
