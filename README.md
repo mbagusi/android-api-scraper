@@ -9,7 +9,7 @@ This project extracts merchant and product data using direct API replay.
 ## ⚙️ Requirements & Setup
 
 ### 1. Environment
-- Real Devices (Google Pixel 7 - Android 16)
+- Real Devices (Google Pixel 7 - Android 16) tools root using KernelSU + configure HMA (Hide My Applist) for bypass root detection
 - Python 3.10+
 - pip3
 
